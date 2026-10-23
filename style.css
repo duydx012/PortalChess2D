@@ -1,0 +1,200 @@
+body { 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    background: #1a1a1a; 
+    margin: 0;
+    font-family: sans-serif;
+    color: white;
+}
+
+.player-panel {
+    width: 520px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.timer {
+    font-family: monospace;
+    font-size: 20px;
+    background: #111;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.active-timer {
+    border-color: #f6e05e;
+    color: #f6e05e;
+}
+
+.graveyard {
+    font-size: 20px;
+    letter-spacing: 2px;
+    min-height: 24px;
+}
+
+#check-warning {
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff4d4d;
+    margin-bottom: 4px;
+}
+
+/* KHUNG BÀN CỜ VÀ TỌA ĐỘ */
+.chess-frame {
+    display: flex;
+    background: #262421;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.ranks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #b5b5b5;
+    padding-right: 8px;
+}
+
+.board-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.files {
+    display: flex;
+    justify-content: space-around;
+    height: 22px;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #b5b5b5;
+    padding-top: 4px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    border: 3px solid #3b3835;
+}
+
+.cell { 
+    width: 60px; 
+    height: 60px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 44px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.white-cell { background-color: #eeeed2; }
+.black-cell { background-color: #769656; }
+
+.piece-white { color: #ffffff; text-shadow: 0 0 4px #000; }
+.piece-black { color: #111111; }
+
+.cell:hover {
+    opacity: 0.85;
+    filter: brightness(1.1);
+}
+
+.preview-dot {
+    width: 18px;
+    height: 18px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+}
+
+.in-check {
+    background-color: #e53e3e !important;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(0.95); }
+}
+
+#game-over-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+#game-over-modal h1 { 
+    font-size: 42px; 
+    margin-bottom: 20px; 
+    color: #f6e05e; 
+    text-align: center; 
+}
+
+#restart-btn {
+    padding: 12px 28px;
+    font-size: 18px;
+    background-color: #769656;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#restart-btn:hover { background-color: #627d48; }
+/* HIỆU ỨNG CỔNG PORTAL */
+.portal {
+    border-radius: 50%;
+    animation: rotatePortal 4s linear infinite;
+}
+
+/* Cổng Cam */
+.portal-orange {
+    box-shadow: inset 0 0 12px #ff8c00, 0 0 15px #ff8c00;
+    border: 2px dashed #ff8c00 !important;
+}
+
+/* Cổng Xanh */
+.portal-blue {
+    box-shadow: inset 0 0 12px #00bfff, 0 0 15px #00bfff;
+    border: 2px dashed #00bfff !important;
+}
+
+/* Số lượt tồn tại hiển thị nhỏ ở góc Cổng */
+.portal-timer {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 1px 4px;
+    border-radius: 3px;
+    pointer-events: none;
+}

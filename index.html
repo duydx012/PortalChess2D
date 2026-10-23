@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal Chess Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Bảng thông tin Quân Đen -->
+    <div class="player-panel">
+        <div>Player 2</div>
+        <div id="graveyard-black" class="graveyard"></div>
+        <div id="timer-black" class="timer">00:00</div>
+    </div>
+
+    <div id="check-warning"></div>
+
+    <!-- KHUNG BÀN CỜ KÈM TỌA ĐỘ -->
+    <div class="chess-frame">
+        <div class="ranks">
+            <span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span>
+        </div>
+        <div class="board-area">
+            <div id="board"></div>
+            <div class="files">
+                <span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bảng thông tin Quân Trắng -->
+    <div class="player-panel" style="margin-top: 10px;">
+        <div>Player 1</div>
+        <div id="graveyard-white" class="graveyard"></div>
+        <div id="timer-white" class="timer active-timer">00:00</div>
+    </div>
+
+    <!-- Modal kết thúc game -->
+    <div id="game-over-modal">
+        <h1 id="winner-text"></h1>
+        <button id="restart-btn" onclick="resetGame()">Chơi Ván Mới</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
